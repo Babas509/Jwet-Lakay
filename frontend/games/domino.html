@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Domino — Placeholder</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header><h1>Domino</h1></header>
+  <main>
+    <p>This is a placeholder page for Domino. Build the actual game UI here.</p>
+    <button id="bet">Place Test Bet</button>
+    <pre id="out"></pre>
+  </main>
+  <script src="../js/socket.js"></script>
+  <script>
+    document.getElementById('bet').onclick = () => {
+      const out = document.getElementById('out');
+      out.textContent = JSON.stringify({ ok: true, game: "Domino" }, null, 2);
+    };
+  </script>
+</body>
+</html>

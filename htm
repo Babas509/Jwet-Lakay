@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="w</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand"><div class="logo" aria-hidden="true"></div><h1>Rotating Savings — Sòl / ROSCA</h1></div>
+      <div class="top-actions">
+        <span class="help">Haiti time • America/Port-au-Prince</span>
+        <select id="langSel" aria-label="Language">
+          <option value="en">English</option>
+          <option value="ht">Kreyòl</option>
+          <option value="fr">Français</option>
+        </select>
+        <button id="btnReset" class="ghost" title="Wipe demo data">Reset</button>
+      </div>
+    </header>
+
+    <div id="banner" role="status" aria-live="polite">
+      <div class="left"><div class="dot"></div><strong>Demo Mode:</strong>&nbsp;<span>Payments are simulated with MonCash/NaTCash TX IDs. Friday cutoff is enforced.</span></div>
+      <button id="btnDismiss" class="ghost" aria-label="Dismiss">✕</button>
+    </div>
+
+    <section class="grid">
+      <div class="col-8">
+        <div class="card">
+          <div class="hd"><div><strong>Circles</strong> <span class="muted">(Previous • Present • Next)</span></div>
+            <div class="tiers" id="tierList"></div>
+          </div>
+          <div class="bd">
+            <div class="kpis" id="circleKPIs"></div>
+            <div id="circleSummary" class="muted" style="margin-top:10px"></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="hd"><div><strong id="activeCircleTitle">Active Circle</strong> <span class="muted" id="activeSub"></span></div>
+            <div class="row" style="align-items:center">
+              <div class="chip blue"><span id="countdown">–</span></div>
+              <button id="btnExport" class="ghost">Export CSV</button>
+            </div>
+          </div>
+          <div class="bd">
+            <div id="roster" class="roster"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <div class="hd"><strong>Enroll</strong><span class="badg gray" id="tierBadge">Tier: –</span></div>
+          <div class="bd">
+            <div class="row">
+              <div><label>Name<input id="enName" placeholder="Full name"></label></div>
+              <div><label>Phone<input id="enPhone" placeholder="e.g. +509…"></label></div>
+              <div><label>Label<input id="enLabel" placeholder="Grocer, Student…"></label></div>
+            </div>
+            <div class="row">
+              <div><label>Tier (HGT)
+                <select id="enTier"></select>
+              </label></div>
+              <div><label>Start date (first Friday)
+                <input id="enStart" type="date">
+              </label></div>
+            </div>
+            <div class="row">
+              <button id="btnEnroll" class="primary">Enroll in Next Circle</button>
+              <button id="btnSeed" class="ghost" title="Add sample users">Quick Seed</button>
+            </div>
+            <p class="help">Enrollment creates an <span class="mono">Enrollment ID</span> used for MonCash/NaTCash payments.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="hd"><strong>Admin</strong><span class="badg gray">Demo tools</span></div>
+          <div class="bd">
+            <div class="row">
+              <button id="btnStartCircle" class="good">Start Next Circle</button>
+              <button id="btnCloseCircle" class="warn">Close Active</button>
+            </div>
+            <div class="row">
+              <button id="btnDrawOrder" class="ghost">Randomize Payout Order</button>
+              <button id="btnAdvanceWeek" class="ghost">Process Missed Friday</button>
+            </div>
+            <div class="row">
+              <label>Platform fee %<input id="feePct" type="number" min="0" max="5" step="0.5" value="0"></label>
+              <button id="btnSaveFee" class="ghost">Save</button>
+            </div>
+            <p class="help">Friday window: 00:00–23:59 (America/Port-au-Prince). Unpaid ⇒ <b>Denied</b>.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="hd"><strong>How to pay</strong><span class="badg gray">MonCash / NaTCash</span></div>
+          <div class="bd">
+            <ol>
+              <li>Open your wallet app (MonCash or NaTCash).</li>
+              <li>Send <b>tier amount</b> to the circle account.</li>
+              <li>Use your <b>Enrollment ID</b> in the memo/notes.</li>
+              <li>Paste the <b>Transaction ID</b> here to mark paid.</li>
+            </ol>
+            <p class="help">This demo stores proof locally and marks you green for the current Friday.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© Demo — Community savings circle. Not a bank. Haiti time enforced.</div>
+  </div>idth=device-width, initial-scale=1" />
+  <title>Rotating Savings — Sòl / ROSCA (Demo)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  </body>
+</html>
+  
